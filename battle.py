@@ -15,13 +15,40 @@ def player_turn():
         print("3. Items")
         print("4. RUN!")
         match input("action >> "):
-            case 1:
-                print("attack menu")
-            case 2:
-                print("Blocking") 
-            case 3:
-                print("no item")
-            case 4:
+            case "1":
+                while True:
+                    print("Use which attack?")
+                    print()
+                    print("1. Quick attack - no ap")
+                    print("2. Heavy blow")
+                    print("3. Back")
+                    match input("action >> "):
+                        case "1":
+                            attack_res = player.attack(1,emeny)
+                            if attack_res[0]:
+                                print("you attack!")
+                                print(f"delt {attack_res[1]} damage")
+                                break
+                            else:
+                                print("not enough ap!")
+                        case "2":
+                            attack_res = player.attack(1,emeny)
+                            if attack_res[0]:
+                                print("you attack!")
+                                print(f"delt {attack_res[1]} damage")
+                                break
+                            else:
+                                print("not enough ap!")
+                        case "3":
+                            break
+                        case _:
+                            print("not an option.")
+            case "2":
+                player.defend()
+                print("You started blocking...")
+            case "3":
+                print("No items!")
+            case "4":
                 print("Can't flee this fight!")
             case _:
                 print("please choose an option")    

@@ -16,11 +16,12 @@ class Actor:
             att = self.att2
 
         if self.ap >= att[2]:
-            Target.damage(randint(att[0],att[1]))
+            dmg = randint(att[0],att[1])
+            Target.damage(dmg)
             self.ap -= att[2]
-            return 1
+            return [1, dmg]
         else:
-            return 0
+            return [0,0]
     def defend(self):
         self.isblocking = True
         self.ap += 20
